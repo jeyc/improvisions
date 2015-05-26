@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block page_title %}{{ 'improvisions.bareme_ir.edit.title'|trans({'%bareme%': bareme.nom}) }}{% endblock %}
+
+{% block page_content %}
+
+    {{ include('baremeir/form.html.twig', { form: edit_form, submit_text: 'improvisions.bareme_ir.form.edit_submit'|trans }, with_context = false) }}
+
+
+    <div>
+        {{ form_start(delete_form) }}
+        <input type="submit" value="{{ 'improvisions.bareme_ir.form.delete_submit'|trans }}"/>
+        {{ form_end(delete_form) }}
+    </div>
+
+{% endblock %}

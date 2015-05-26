@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block page_title %}{{ 'improvisions.bareme_ir.index.title'|trans }}{% endblock %}
+
+{% block page_content %}
+
+    {% if baremes|length %}
+        <ul>
+            {% for bareme in baremes %}
+                <li><a href="{{ path('parametrage_impots_ir_baremes_edit', { 'id': bareme.id }) }}">{{ bareme.nom }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>{{ 'improvisions.bareme_ir.index.intro_null'|trans }}</p>
+        <p><a href="{{ path('parametrage_impots_ir_baremes_new') }}">{{ 'improvisions.bareme_ir.action.new'|trans }}</a></p>
+    {% endif %}
+
+{% endblock %}

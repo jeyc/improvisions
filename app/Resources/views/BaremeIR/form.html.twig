@@ -1,0 +1,21 @@
+{% macro tranche_prototype(tranche) %}
+    <tr>
+        <td>{{ form_row(tranche.min) }}</td>
+        <td>{{ form_row(tranche.taux) }}</td>
+    </tr>
+{% endmacro %}
+
+
+{{ form_start(form) }}
+
+{{ form_row(form.nom) }}
+
+<table class="prototyped" data-prototype="{{ _self.tranche_prototype(form.tranches.vars.prototype)|e }}">
+    {% for tranche in form.tranches %}
+        {{ _self.tranche_prototype(tranche) }}
+    {% endfor %}
+</table>
+
+<input type="submit" value="{{ submit_text }}"/>
+
+{{ form_end(form) }}

@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block page_title %}{{ 'improvisions.bareme_ir.new.title'|trans }}{% endblock %}
+
+{% block page_content %}
+
+    {{ include('baremeir/form.html.twig', { form: form, submit_text: 'improvisions.bareme_ir.form.new_submit'|trans }, with_context = false) }}
+
+{% endblock %}

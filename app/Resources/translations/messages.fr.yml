@@ -6,3 +6,22 @@ improvisions:
   form:
     more_text: Plus
     less_text: Moins
+
+  bareme_ir:
+    index:
+      title: Liste des barèmes
+      intro_null: Aucun barème trouvé.
+
+    new:
+      title: Création d'un barème
+
+    edit:
+      title: Modification du barème "%bareme%"
+
+    form:
+      edit_submit: Modifier le barème
+      new_submit: Créer le barème
+      delete_submit: Supprimer le barème
+
+    action:
+      new: Créer un barème
