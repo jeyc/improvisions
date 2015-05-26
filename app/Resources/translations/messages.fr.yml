@@ -14,9 +14,14 @@ improvisions:
 
     new:
       title: Création d'un barème
+      notice: Le barème a été correctement créé.
 
     edit:
       title: Modification du barème "%bareme%"
+      notice: Le barème a été correctement modifié.
+
+    delete:
+      notice: Le barème a été correctement supprimé.
 
     form:
       edit_submit: Modifier le barème
@@ -25,3 +30,4 @@ improvisions:
 
     action:
       new: Créer un barème
+ok: prout

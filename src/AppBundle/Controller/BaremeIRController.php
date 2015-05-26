@@ -49,6 +49,8 @@ class BaremeIRController extends BasicController
             $em->persist($bareme);
             $em->flush();
 
+            $this->flashNotice('improvisions.bareme_ir.new.notice');
+
             return $this->redirect($this->generateUrl('parametrage_impots_ir_baremes_edit', array('id' => $bareme->getId())));
         }
 
@@ -172,6 +174,8 @@ class BaremeIRController extends BasicController
 
             $em->flush();
 
+            $this->flashNotice('improvisions.bareme_ir.edit.notice');
+
             return $this->redirect($this->generateUrl('parametrage_impots_ir_baremes_edit', array('id' => $id)));
         }
 
@@ -202,6 +206,8 @@ class BaremeIRController extends BasicController
 
             $em->remove($bareme);
             $em->flush();
+
+            $this->flashNotice('improvisions.bareme_ir.delete.notice');
         }
 
         return $this->redirect($this->generateUrl('parametrage_impots_ir_baremes'));
