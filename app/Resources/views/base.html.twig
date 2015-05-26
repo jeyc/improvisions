@@ -17,6 +17,15 @@
         {{ include('menu.html.twig') }}
         {% block javascripts %}
             <script src="{{ asset('javascript/jquery-2.1.4.min.js') }}"></script>
+            <script src="{{ asset('javascript/form_collection.plugin.js') }}"></script>
+            <script>
+                jQuery(document).ready(function() {
+                    $('.prototyped').formCollection({
+                        moreText: '{{ 'improvisions.form.more_text'|trans }}',
+                        lessText: '{{ 'improvisions.form.less_text'|trans }}'
+                    });
+                });
+            </script>
         {% endblock %}
     </body>
 </html>

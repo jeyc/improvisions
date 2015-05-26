@@ -2,3 +2,7 @@ improvisions:
   site:
     title: Improvisions
     short_description: Mes impôts, mes économies
+
+  form:
+    more_text: Plus
+    less_text: Moins
