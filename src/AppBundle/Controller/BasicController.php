@@ -32,4 +32,9 @@ class BasicController extends Controller {
         return $this->getEM()->getRepository($entityShortName);
     }
 
+    protected function translate($message, $param = array(), $domain = null, $locale = null)
+    {
+        return $this->get('translator')->trans($message, $param, $domain, $locale);
+    }
+
 }
