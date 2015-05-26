@@ -5,10 +5,8 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\TrancheIR;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use AppBundle\Entity\BaremeIR;
 use AppBundle\Form\BaremeIRType;
 
@@ -17,7 +15,7 @@ use AppBundle\Form\BaremeIRType;
  *
  * @Route("/parametrage/impots/ir/baremes")
  */
-class BaremeIRController extends Controller
+class BaremeIRController extends BasicController
 {
 
     /**
@@ -28,9 +26,7 @@ class BaremeIRController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $baremes = $em->getRepository('AppBundle:BaremeIR')->findAll();
+        $baremes = $this->getRepo('AppBundle:BaremeIR')->findAll();
 
         return $this->render('baremeir/index.html.twig', array(
             'baremes' => $baremes,
@@ -49,7 +45,7 @@ class BaremeIRController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+            $em = $this->getEM();
             $em->persist($bareme);
             $em->flush();
 
@@ -108,9 +104,7 @@ class BaremeIRController extends Controller
      */
     public function editAction($id)
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $bareme = $em->getRepository('AppBundle:BaremeIR')->find($id);
+        $bareme = $this->getRepo('AppBundle:BaremeIR')->find($id);
 
         if (!$bareme) {
             throw $this->createNotFoundException($this->get('translator')->translate('gezgezzg'));
@@ -150,7 +144,7 @@ class BaremeIRController extends Controller
      */
     public function updateAction(Request $request, $id)
     {
-        $em = $this->getDoctrine()->getManager();
+        $em = $this->getEM();
 
         $bareme = $em->getRepository('AppBundle:BaremeIR')->find($id);
 
@@ -199,7 +193,7 @@ class BaremeIRController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+            $em = $this->getEM();
             $bareme = $em->getRepository('AppBundle:BaremeIR')->find($id);
 
             if (!$bareme) {
@@ -228,4 +222,5 @@ class BaremeIRController extends Controller
             ->getForm()
         ;
     }
+
 }
